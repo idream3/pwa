@@ -13,8 +13,13 @@ declare global {
 
 declare const self: ServiceWorkerGlobalScope;
 
+const manifest = self.__SW_MANIFEST;
+
+console.log(manifest);
+
+
 const serwist = new Serwist({
-  precacheEntries: self.__SW_MANIFEST,
+  precacheEntries: manifest,
   skipWaiting: true,
   clientsClaim: true,
   navigationPreload: true,
