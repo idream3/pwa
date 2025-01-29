@@ -16,6 +16,10 @@ export default function Page() {
         router.push("/about");
       }}>About (router push)</div>
 
+      <div onClick={() => {
+        router.push("/docs");
+      }}>Docs (router push)</div>
+
       {["yacht", "sailboat", "motorboat"].map((type) => (
         <div>
         <Link key={type} href={`/boats/${type}`}>
