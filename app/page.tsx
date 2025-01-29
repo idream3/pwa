@@ -27,6 +27,14 @@ export default function Page() {
         </Link>
         </div>
       ))}
+
+      {["yacht", "sailboat", "motorboat"].map((type) => (
+        <div>
+        <Link key={type} href={`/boatsQuery?type=${type}`}>
+          {type}
+        </Link>
+        </div>
+      ))}
     </>
   );
 }
