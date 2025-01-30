@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <>
       <h1>Next.js + Serwist</h1>
-      <Link href="/about">About (link)</Link>
+      {/* <Link href="/about">About (link)</Link> */}
 
       <div onClick={() => {
         router.push("/about");
