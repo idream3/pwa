@@ -36,18 +36,6 @@ const serwist = new Serwist({
   },
 });
 
-// {
-//   matcher: /^https:\/\/attendee(?:\?.*)?$/i,
-//   handler: new CacheFirst({
-//     cacheName: "attendee-ticket-detail",
-//     plugins: [
-//       new ExpirationPlugin({
-//         maxEntries: 4,
-//         maxAgeSeconds: 365 * 24 * 60 * 60, // 365 days
-//         maxAgeFrom: "last-used",
-//       }),
-//     ],
-//   }),
-// },
+
 
 serwist.addEventListeners();

@@ -21,12 +21,18 @@ const withSerwist = withSerwistInit({
   cacheOnNavigation: true,
   swSrc: "app/sw.ts",
   swDest: "public/sw.js",
+  // additionalPrecacheEntries: [
+  //   // ...getGeneratedPrecacheEntries(revision),
+  //   { url: "/docs", revision },
+  //   { url: "/about", revision },
+  //   { url: "/boatsQuery", revision },
+  //   { url: "/manifest.json", revision },
+  // ],
   additionalPrecacheEntries: [
     { url: "/~offline", revision },
-    // ...getGeneratedPrecacheEntries(revision),
+    { url: "/boatsQuery*", revision },
     { url: "/docs", revision },
     { url: "/about", revision },
-    { url: "/boatsQuery", revision },
     { url: "/manifest.json", revision },
   ],
 });
