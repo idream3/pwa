@@ -27,6 +27,7 @@ const withSerwist = withSerwistInit({
     { url: "/docs", revision },
     { url: "/about", revision },
     { url: "/boatsQuery", revision },
+    { url: "/manifest.json", revision },
   ],
 });
 
