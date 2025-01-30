@@ -19,22 +19,7 @@ export default function Page() {
       <div onClick={() => {
         router.push("/docs");
       }}>Docs (router push)</div>
-
-      {["yacht", "sailboat", "motorboat"].map((type) => (
-        <div>
-        <Link key={type} href={`/boats/${type}`}>
-          {type}
-        </Link>
-        </div>
-      ))}
-
-      {["yacht", "sailboat", "motorboat"].map((type) => (
-        <div>
-        <Link key={type} href={`/boatsQuery?type=${type}`}>
-          {type}
-        </Link>
-        </div>
-      ))}
+     
     </>
   );
 }
