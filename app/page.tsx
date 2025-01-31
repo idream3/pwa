@@ -1,8 +1,7 @@
 "use client";
 
 import type { Metadata } from "next";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, Link } from "next/navigation";
 
 
 export default function Page() {
@@ -10,7 +9,8 @@ export default function Page() {
   return (
     <>
       <h1>Next.js + Serwist</h1>
-      {/* <Link href="/about">About (link)</Link> */}
+      <a href="/about">About (link)</a>
+
 
       <div onClick={() => {
         router.push("/about");
@@ -18,7 +18,7 @@ export default function Page() {
 
       <div onClick={() => {
         router.push("/docs");
-      }}>Docs (router push)</div>
+      }}>Docss (router push)</div>
      
     </>
   );
