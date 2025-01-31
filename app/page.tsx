@@ -1,7 +1,7 @@
 "use client";
 
 import type { Metadata } from "next";
-import { useRouter, Link } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 
 export default function Page() {
