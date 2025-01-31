@@ -31,8 +31,8 @@ const withSerwist = withSerwistInit({
   additionalPrecacheEntries: [
     { url: "/~offline", revision },
     { url: "/boatsQuery*", revision },
-    { url: "/docs", revision },
-    { url: "/about", revision },
+    { url: "/docs", revision: null },
+    { url: "/about", revision: null },
     { url: "/manifest.json", revision },
   ],
 });
