@@ -12,6 +12,7 @@ export default function Page() {
       <a href="/about">About (link)</a>
 
 
+
       <div onClick={() => {
         router.push("/about");
       }}>About (router push)</div>
