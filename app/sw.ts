@@ -20,6 +20,7 @@ console.log(manifest);
 
 const serwist = new Serwist({
   precacheEntries: manifest,
+  // precacheOptions,
   skipWaiting: true,
   clientsClaim: true,
   navigationPreload: true,

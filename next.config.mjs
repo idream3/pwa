@@ -18,9 +18,10 @@ function getGeneratedPrecacheEntries(buildId) {
 }
 
 const withSerwist = withSerwistInit({
-  cacheOnNavigation: true,
+  cacheOnNavigation: false,
   swSrc: "app/sw.ts",
   swDest: "public/sw.js",
+  reloadOnOnline: false,
   // additionalPrecacheEntries: [
   //   // ...getGeneratedPrecacheEntries(revision),
   //   { url: "/docs", revision },
