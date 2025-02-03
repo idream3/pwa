@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             }
             `}</style>
 
-        <script type="text/javascript" dangerouslySetInnerHTML={{
+        {/* <script type="text/javascript" dangerouslySetInnerHTML={{
           __html: `
             navigator.serviceWorker.register('/sw.js', {
               // https://developer.chrome.com/blog/fresher-sw/#updateviacache
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             .then(reg => console.log('SW registered!', reg))
             .catch(err => console.log('Boo!', err));`
         }}>
-        </script>
+        </script> */}
       </head>
       <body>{children}</body>
     </html>

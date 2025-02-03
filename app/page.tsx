@@ -13,9 +13,9 @@ export default function Page() {
       <div><img src="/dog.jpeg" alt="Dog" /></div>
 
 
-      <a href="/about">About (a)</a>
 
       <Link href="/about">About (Link)</Link>
+      <Link href="/about?blah=blah">About with search params (Link)</Link>
 
 
       <div style={{cursor: "pointer"}} onClick={() => {

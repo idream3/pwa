@@ -1,17 +1,31 @@
 // @ts-check
 import withSerwistInit from "@serwist/next";
 import crypto from "crypto";
+import { globSync } from "glob";
+import path from "node:path";
 import { InjectManifest, GenerateSW } from "workbox-webpack-plugin";
 
 // You may want to use a more robust revision to cache
 // files more efficiently.
 // A viable option is `git rev-parse HEAD`.
+
+const publicDir = path.resolve("/", "public");
+
 const revision = crypto.randomUUID();
 
-function getStaticPrecacheEntries() {
-  // build list of manifest entries to precache content of public folder
-  return [];
-}
+// function getStaticPrecacheEntries() {
+
+//   const publicScan = globSync(["**/*"], {
+//     nodir: true,
+//     cwd: publicDir,
+//     ignore: ["swe-worker-*.js"],
+//   });
+//   const entries = publicScan.map((f) => ({
+//     url: path.posix.join(basePath, f),
+//     revision,
+//   }));
+//   return [];
+// }
 
 function getGeneratedPrecacheEntries(buildId) {
   // build list of page entries, using buildId as revision for HTML files and as part of the url for JSON files
@@ -23,8 +37,11 @@ const withSerwist = withSerwistInit({
   swSrc: "app/sw.ts",
   swDest: "public/sw.js",
   reloadOnOnline: false,
-
   // additionalPrecacheEntries: [
+  //   { url: "/about", revision },
+  //   { url: "/docs", revision },
+  //   { url: "/manifest.json", revision },
+  // ],
   //   // ...getGeneratedPrecacheEntries(revision),
   //   { url: "/docs", revision },
   //   { url: "/about", revision },
