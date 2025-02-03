@@ -1,6 +1,7 @@
 // @ts-check
 import withSerwistInit from "@serwist/next";
 import crypto from "crypto";
+import { InjectManifest, GenerateSW } from "workbox-webpack-plugin";
 
 // You may want to use a more robust revision to cache
 // files more efficiently.
@@ -22,6 +23,7 @@ const withSerwist = withSerwistInit({
   swSrc: "app/sw.ts",
   swDest: "public/sw.js",
   reloadOnOnline: false,
+
   // additionalPrecacheEntries: [
   //   // ...getGeneratedPrecacheEntries(revision),
   //   { url: "/docs", revision },
@@ -29,18 +31,54 @@ const withSerwist = withSerwistInit({
   //   { url: "/boatsQuery", revision },
   //   { url: "/manifest.json", revision },
   // ],
-  additionalPrecacheEntries: [
-    { url: "/~offline", revision },
-    { url: "/boatsQuery*", revision },
-    { url: "/docs", revision: null },
-    { url: "/about", revision: null },
-    { url: "/manifest.json", revision },
-  ],
+  // additionalPrecacheEntries: [
+  //   { url: "/~offline", revision },
+  //   { url: "/boatsQuery*", revision },
+  //   { url: "/docs", revision: null },
+  //   { url: "/about", revision: null },
+  //   { url: "/manifest.json", revision },
+  // ],
 });
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+
+  // webpack(config, _options) {
+
+  //   config.plugins.push(
+  //       new GenerateSW({
+  //         // These are some common options, and not all are required.
+  //         // Consult the docs for more info.
+  //         exclude: [/.../, '...'],
+  //         maximumFileSizeToCacheInBytes: ...,
+  //         navigateFallback: '...',
+  //         runtimeCaching: [{
+  //           // Routing via a matchCallback function:
+  //           urlPattern: ({request, url}) => ...,
+  //           handler: '...',
+  //           options: {
+  //             cacheName: '...',
+  //             expiration: {
+  //               maxEntries: ...,
+  //             },
+  //           },
+  //         }, {
+  //           // Routing via a RegExp:
+  //           urlPattern: new RegExp('...'),
+  //           handler: '...',
+  //           options: {
+  //             cacheName: '...',
+  //             plugins: [..., ...],
+  //           },
+  //         }],
+  //         skipWaiting: true,
+  //       }),
+  //   );
+
+  //   return config;
+  // },
 };
 
+// export default nextConfig;
 export default withSerwist(nextConfig);

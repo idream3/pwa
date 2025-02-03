@@ -45,6 +45,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               text-align: center;
             }
             `}</style>
+
+        <script type="text/javascript" dangerouslySetInnerHTML={{
+          __html: `
+            navigator.serviceWorker.register('/sw.js', {
+              // https://developer.chrome.com/blog/fresher-sw/#updateviacache
+              updateViaCache: 'none',
+            })
+            .then(reg => console.log('SW registered!', reg))
+            .catch(err => console.log('Boo!', err));`
+        }}>
+        </script>
       </head>
       <body>{children}</body>
     </html>

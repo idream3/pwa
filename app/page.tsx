@@ -1,6 +1,7 @@
 "use client";
 
 import type { Metadata } from "next";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 
@@ -9,11 +10,15 @@ export default function Page() {
   return (
     <>
       <h1>Next.js + Serwist</h1>
-      <a href="/about">About (link)</a>
+      <div><img src="/dog.jpeg" alt="Dog" /></div>
 
 
+      <a href="/about">About (a)</a>
 
-      <div onClick={() => {
+      <Link href="/about">About (Link)</Link>
+
+
+      <div style={{cursor: "pointer"}} onClick={() => {
         router.push("/about");
       }}>About (router push)</div>
 

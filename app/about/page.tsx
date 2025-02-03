@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 
@@ -6,7 +8,6 @@ export default function Page() {
     <>
       <h1>About</h1>
       <Link href="/">Home</Link>
-
     </>
   );
 }
