@@ -40,6 +40,17 @@ const serwist = new Serwist({
       alteredUrl.search = "";
       return [alteredUrl];
     },
+
+    // fetchOptions:
+    matchOptions: {
+      ignoreSearch: true,
+    }
+
+    // precacheStrategyOptions
+    // fetchOptions: precacheFetchOptions,
+    // matchOptions: precacheMatchOptions,
+
+
   },
   disableDevLogs: true,
   skipWaiting: true,
@@ -85,7 +96,7 @@ self.addEventListener("fetch", async (event) => {
     cacheMatch: (await serwist.matchPrecache(urlWithoutSearch))
   });
 
-  event.respondWith((async () => (await serwist.matchPrecache(urlWithoutSearch)) ?? Response.error())());
+  // event.respondWith((async () => (await serwist.matchPrecache(urlWithoutSearch)) ?? Response.error())());
 });
 
 
