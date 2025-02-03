@@ -1,5 +1,6 @@
 "use client";
 
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -13,9 +14,9 @@ export default function Page() {
       <div><img src="/dog.jpeg" alt="Dog" /></div>
 
 
-
-      <Link href="/about">About (Link)</Link>
-      <Link href="/about?blah=blah">About with search params (Link)</Link>
+      <div><a href="/about">About (a)</a></div>
+      <div><Link href="/about" prefetch={false} shallow={true}>About (Link)</Link></div>
+      <div><Link href="/about?blah=blah" prefetch={false} shallow={true}>About with search params (Link)</Link></div>
 
 
       <div style={{cursor: "pointer"}} onClick={() => {

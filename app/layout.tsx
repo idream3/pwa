@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
+
 const APP_NAME = "NJS App";
 const APP_DESCRIPTION = "Next.js + Serwist PWA";
 

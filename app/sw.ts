@@ -13,6 +13,14 @@ declare global {
 
 declare const self: ServiceWorkerGlobalScope;
 
+
+function guidGenerator() {
+  var S4 = function () {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+  };
+  return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+}
+
 const manifest = self.__SW_MANIFEST;
 
 
@@ -23,11 +31,13 @@ const serwist = new Serwist({
     cleanupOutdatedCaches: true,
     concurrency: 10,
     ignoreURLParametersMatching: [/.*/],
-    directoryIndex: null,
-    cleanURLs: true,
+    // directoryIndex: null,
+    // cleanURLs: true,
     urlManipulation: ({ url }) => {
       const alteredUrl = new URL(url);
-      console.log("URL Manipulation", alteredUrl);
+      console.log("URL Manipulation", alteredUrl.pathname);
+      alteredUrl.searchParams.delete('_rsc');
+      alteredUrl.search = "";
       return [alteredUrl];
     },
   },
@@ -48,12 +58,12 @@ const serwist = new Serwist({
   },
 });
 
-// const revision = crypto.randomUUID();
+const revision = guidGenerator();
 
 serwist.addToPrecacheList([
-  { url: "/", revision: null },
-  { url: "/about", revision: null },
-  { url: "/docs", revision: null },
+  { url: "/", revision },
+  { url: "/about", revision },
+  { url: "/docs", revision },
 ])
 
 
@@ -62,22 +72,22 @@ self.addEventListener("install", (event) => {
 })
 
 self.addEventListener("fetch", async (event) => {
+
   const cache = await caches.open(serwist.precacheStrategy.cacheName);
-
   const url = new URL(event.request.url);
-  console.log("fetch", { pathname: url.pathname, url: event.request.url, getPrecacheKeyForUrl: serwist.getPrecacheKeyForUrl(event.request.url) });
+  const urlWithoutSearch = url.origin + url.pathname;
 
-  console.log("fetch cache response", (await serwist.matchPrecache(event.request.url)))
+  console.log("fetch", {
+    requestUrl: event.request.url,
+    pathname: url.pathname,
+    urlWithoutSearch: urlWithoutSearch,
+    getPrecacheKeyForUrl: serwist.getPrecacheKeyForUrl(urlWithoutSearch),
+    cacheMatch: (await serwist.matchPrecache(urlWithoutSearch))
+  });
 
-
-
-  // if (url.origin === location.origin && url.pathname === "/test-precache") {
-  //   const cacheKey = serwist.getPrecacheKeyForUrl("/precached-file.html");
-  //   if (cacheKey) {
-  //     event.respondWith((async () => (await cache.match(cacheKey)) ?? Response.error())());
-  //   }
-  // }
+  event.respondWith((async () => (await serwist.matchPrecache(urlWithoutSearch)) ?? Response.error())());
 });
+
 
 // self.addEventListener("fetch", (event) => {
 //   const url = new URL(event.request.url);
