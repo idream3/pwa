@@ -33,18 +33,18 @@ const serwist = new Serwist({
     ignoreURLParametersMatching: [/.*/],
     // directoryIndex: null,
     // cleanURLs: true,
-    urlManipulation: ({ url }) => {
-      const alteredUrl = new URL(url);
-      console.log("URL Manipulation", alteredUrl.pathname);
-      alteredUrl.searchParams.delete('_rsc');
-      alteredUrl.search = "";
-      return [alteredUrl];
-    },
+    // urlManipulation: ({ url }) => {
+    //   const alteredUrl = new URL(url);
+    //   console.log("URL Manipulation", alteredUrl.pathname);
+    //   alteredUrl.searchParams.delete('_rsc');
+    //   alteredUrl.search = "";
+    //   return [alteredUrl];
+    // },
 
     // fetchOptions:
-    matchOptions: {
-      ignoreSearch: true,
-    }
+    // matchOptions: {
+    //   ignoreSearch: true,
+    // }
 
     // precacheStrategyOptions
     // fetchOptions: precacheFetchOptions,
