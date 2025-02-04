@@ -34,7 +34,7 @@ function getGeneratedPrecacheEntries(buildId) {
 
 const withSerwist = withSerwistInit({
   cacheOnNavigation: false,
-  swSrc: "public/sw.ts",
+  swSrc: "./sw.ts",
   swDest: "public/sw.js",
   reloadOnOnline: false,
   exclude: [/dynamic-css-manifest\.json$/],
