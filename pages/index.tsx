@@ -9,7 +9,6 @@ export default function Page({ children }: { children: ReactNode }) {
         <h1>Next.js + Pages + Serwist</h1>
         <div><img src="/dog.jpeg" alt="Dog" /></div>
   
-        <div><a href="/about">About (a)</a></div>
         <div><Link href="/about" prefetch={false} shallow={true}>About (Link)</Link></div>
         <div><Link href="/about?blah=blah" prefetch={false} shallow={true}>About with search params (Link)</Link></div>
   

@@ -72,7 +72,7 @@ const serwist = new Serwist({
 const revision = guidGenerator();
 
 serwist.addToPrecacheList([
-  { url: "/", revision },
+  { url: "/*", revision },
   { url: "/about", revision },
   { url: "/docs", revision },
 ])
