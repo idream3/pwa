@@ -10,7 +10,7 @@ export default function Page() {
   const router = useRouter();
   return (
     <>
-      <h1>Next.js + Serwist</h1>
+      <h1>Next.js + App dir + Serwist</h1>
       <div><img src="/dog.jpeg" alt="Dog" /></div>
 
 
